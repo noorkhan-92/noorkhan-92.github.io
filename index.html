@@ -5,223 +5,452 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Noor Khan - Backend Software Engineer</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
-            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
         }
+
         .container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
-            background-color: #fff;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        /* Header Section */
+        .header {
+            display: flex;
+            align-items: center;
             padding: 40px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            gap: 40px;
         }
-        header {
-            text-align: center;
-            border-bottom: 2px solid #555;
-            padding-bottom: 20px;
-            margin-bottom: 30px;
+
+        .profile-picture {
+            flex-shrink: 0;
         }
-        header h1 {
-            margin: 0;
-            color: #2c3e50;
+
+        .profile-picture img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid white;
+            object-fit: cover;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
-        header h2 {
-            margin: 5px 0 15px;
-            color: #7f8c8d;
-            font-weight: normal;
+
+        .header-info {
+            flex: 1;
         }
-        .contact-info a {
-            color: #3498db;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-        section {
-            margin-bottom: 30px;
-        }
-        h3 {
-            color: #2c3e50;
-            border-bottom: 1px solid #bdc3c7;
-            padding-bottom: 5px;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
-        .job, .project, .education-item {
-            margin-bottom: 20px;
-            padding-left: 15px;
-            border-left: 3px solid #3498db;
-        }
-        .job h4, .project h4, .education-item h4 {
-            margin: 0;
-            color: #34495e;
-            font-size: 1.1em;
-        }
-        .job p, .project p, .education-item p {
-            margin: 5px 0 0;
-            font-style: italic;
-            color: #888;
-        }
-        ul {
-            list-style-type: disc;
-            padding-left: 20px;
-            margin-top: 5px;
-        }
-        ul li {
+
+        .name {
+            font-size: 2.5em;
+            font-weight: bold;
             margin-bottom: 5px;
         }
-        .skills-list {
-            list-style-type: none;
-            padding-left: 0;
+
+        .title {
+            font-size: 1.3em;
+            opacity: 0.95;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
             display: flex;
             flex-wrap: wrap;
+            gap: 25px;
+            font-size: 0.95em;
+            margin-bottom: 20px;
         }
-        .skills-list li {
-            background: #ecf0f1;
-            padding: 5px 10px;
-            margin: 0 10px 10px 0;
-            border-radius: 3px;
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-item strong {
+            opacity: 0.9;
+        }
+
+        .summary {
+            font-size: 0.95em;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        /* Main Content Section */
+        .main-content {
+            display: flex;
+            min-height: 600px;
+        }
+
+        /* Projects Column (1/3) */
+        .projects-column {
+            flex: 1;
+            padding: 40px;
+            background: #f9f9f9;
+            border-right: 1px solid #e0e0e0;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .project-item {
+            margin-bottom: 25px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-name {
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+
+        .project-link {
+            display: inline-block;
+            color: #764ba2;
+            text-decoration: none;
             font-size: 0.9em;
+            margin-bottom: 8px;
+            word-break: break-all;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        .project-description {
+            font-size: 0.9em;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Experience & Education Column (2/3) */
+        .experience-column {
+            flex: 2;
+            padding: 40px;
+        }
+
+        .experience-section {
+            margin-bottom: 35px;
+        }
+
+        .experience-item {
+            margin-bottom: 25px;
+            padding-left: 25px;
+            border-left: 3px solid #667eea;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 5px;
+        }
+
+        .position {
+            font-weight: bold;
+            font-size: 1.05em;
+            color: #333;
+        }
+
+        .dates {
+            font-size: 0.9em;
+            color: #999;
+            font-weight: 500;
+        }
+
+        .company {
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .description {
+            font-size: 0.95em;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 20px;
+            }
+
+            .profile-picture img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .name {
+                font-size: 2em;
+            }
+
+            .main-content {
+                flex-direction: column;
+            }
+
+            .projects-column {
+                border-right: none;
+                border-bottom: 1px solid #e0e0e0;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>NOOR KHAN</h1>
-            <h2>BACKEND SOFTWARE ENGINEER</h2>
-            <div class="contact-info">
-                <a href="mailto:noorkhan_92@hotmail.com">noorkhan_92@hotmail.com</a> |
-                <span>+966554255217</span> |
-                <a href="#">GitHub</a> |
-                <a href="#">LinkedIn</a>
+        <!-- Header Section -->
+        <div class="header">
+            <div class="profile-picture">
+                <img src="./profile.jpg" alt="Profile Picture">
             </div>
-        </header>
+            <div class="header-info">
+                <div class="name">Noor Khan</div>
+                <div class="title">Backend Software Engineer | Microservices Architect</div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <strong>📞</strong>
+                        <span>+92 302 3519551</span>
+                    </div>
+                    <div class="contact-item">
+                        <strong>📧</strong>
+                        <span>noorkhan_92@hotmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <strong>💼</strong>
+                        <span><a href="https://linkedin.com/in/noorkhan92" style="color: white; text-decoration: none;">LinkedIn</a></span>
+                    </div>
+                </div>
+                <div class="summary">
+                    Senior Backend Software Engineer with 5+ years of experience designing and building scalable microservices
+and distributed systems in fintech, social platforms, and blockchain domains. Strong expertise in Java, Kotlin,
+Spring Boot, system design, and high-performance transaction processing systems.
+Experienced in cloud-native architecture, Kubernetes deployments, messaging systems, performance
+benchmarking, and secure authentication/authorization systems.
+                </div>
+            </div>
+        </div>
 
-        <section id="experience">
-            <h3>PROFESSIONAL EXPERIENCE</h3>
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Projects Column -->
+            <div class="projects-column">
+                <div class="section-title">GitHub Projects</div>
 
-            <div class="job">
-                <h4>DCore</h4>
-                <p>Backend Software Engineer | Islamabad, Pakistan | 06/2022-05/2025</p>
-                <ul>
-                    <li>Next generation core banking platform with cloud agnostic microservices based architecture.</li>
-                    <li>Developed services including notification, document, template, parameter, device management, customer, product definition, ledger, instrument and turbine (customer requests and transactions processing engine).</li>
-                    <li>**Technologies**: Kotlin, Spring Boot, Postgres, Pulsar, Redis, GRPC, protobuf, gradle, OPA, KeyCloak, APISIX, Docker, Helm Chart, Kubernetes, ArgoCD, Github, github action, AWS.</li>
-                </ul>
-            </div>
+                <div class="project-item">
+                    <div class="project-name">spring-configuration-and-integrations</div>
+                    <div class="project-link">https://github.com/noorkhan-92/spring-configuration-and-integrations</div>
+                    <div class="project-description">
+                        this repository consists of multiple spring projects of different spring configuration and integrations examples
+                    </div>
+                </div>
 
-            <div class="job">
-                <h4>Remerse</h4>
-                <p>Backend Software Engineer | Karachi, Pakistan | 01/2022-03/2022</p>
-                <ul>
-                    <li>Developed backend of **Viyakum app**, an event management app.</li>
-                    <li>**Technologies**: Typescript, NestJS, MongoDB, VS Code.</li>
-                </ul>
-            </div>
+                <div class="project-item">
+                    <div class="project-name">hello-rust</div>
+                    <div class="project-link">https://github.com/noorkhan-92/hello-rust</div>
+                    <div class="project-description">
+                        This is a simple Rust project that demonstrates basic syntax and features of the Rust programming language. It includes examples of variables, functions, control flow, and ownership concepts.
+                    </div>
+                </div>
 
-            <div class="job">
-                <h4>Talkkia</h4>
-                <p>Backend Software Engineer, Team Lead | Swat, Pakistan | 06/2021-06/2022</p>
-                <ul>
-                    <li>Designed and developed the backend of a social and communication app and lead the engineering team.</li>
-                    <li>**Technologies**: Java, Spring Boot, Neo4J, Maven, ActiveMQ Artemis, STOMP, Websocket.</li>
-                </ul>
-            </div>
-            
-            <div class="project">
-                <h4>Pharmacy Management System (Pet Project)</h4>
-                <p>Software Engineer | Samar Bagh, Pakistan | 02/2021-06/2021</p>
-                <ul>
-                    <li>Designed and developed this medical store management system as a pet project.</li>
-                    <li>**Technologies**: Java, JavaFX, SQLite, NetBeans, SQLite Expert Personal 3, JavaFX Scene Builder.</li>
-                </ul>
-            </div>
+                <div class="project-item">
+                    <div class="project-name">Spring Rest</div>
+                    <div class="project-link">https://github.com/noorkhan-92/SpringRest</div>
+                    <div class="project-description">
+                        This project is a simple Spring Boot application that demonstrates how to create RESTful web services using Spring MVC. It includes examples of GET, POST, PUT, and DELETE endpoints, as well as basic error handling and data validation.
+                    </div>
+                </div>
 
-            <div class="project">
-                <h4>Supply Chain Blockchain Network (Postgraduate research)</h4>
-                <p>Postgraduate research | Beijing, China | 09/2018-09/2020</p>
-                <ul>
-                    <li>Designed and built a smart contract driven cross border trade supply chain based on blockchain technology.</li>
-                    <li>Network members included: supplier, buyer, banks and regulatory organizations.</li>
-                    <li>**Technologies**: hyperledger fabric, java, java SDK, docker, docker compose.</li>
-                </ul>
-            </div>
-            
-            <div class="job">
-                <h4>Inventory Management System (Internee)</h4>
-                <p>Software engineer internee in Pakistan council for science and technology | Islamabad, Pakistan | 02/2017-08/2017</p>
-                <ul>
-                    <li>Designed and developed the Inventory Management System for the PCST store.</li>
-                    <li>**Technologies**: PhP, MySQL, Javascript, HTML, CSS, NetBeans, MySQL Workbench.</li>
-                </ul>
-            </div>
-            
-            <div class="project">
-                <h4>Library Management System (Undergraduate Final Year Project)</h4>
-                <p>Team Lead | Samar Bagh, Pakistan | 09/2014-02/2016</p>
-                <ul>
-                    <li>Designed and developed a library management system for a college library.</li>
-                    <li>**Technologies**: Java, SQLite, NetBeans, SQLite Expert Personal 3.</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="education">
-            <h3>EDUCATION</h3>
-
-            <div class="education-item">
-                <h4>Beihang Unversity (BUAA)</h4>
-                <p>Master in computer science (blockchain technology and applications) | Beijing, China | 09/2017-09/2020</p>
+                <div class="project-item">
+                    <div class="project-name">supply-network</div>
+                    <div class="project-link">https://github.com/noorkhan-92/supply-network</div>
+                    <div class="project-description">
+                        This project is a simple implementation of a supply network using Hyperledger Fabric. It demonstrates how to model a decentralized trade ecosystem with suppliers, buyers, banks, and regulators. The project includes smart contracts for managing trade transactions.
+                    </div>
+                </div>
             </div>
 
-            <div class="education-item">
-                <h4>Govt Degree College</h4>
-                <p>BS in computer science | Samar Bagh, Pakistan | 09/2011-02/2016</p>
-            </div>
-        </section>
+            <!-- Experience & Education Column -->
+            <div class="experience-column">
+                <!-- Experience Section -->
+                <div class="experience-section">
+                    <div class="section-title">Experience</div>
 
-        <section id="skills">
-            <h3>TECHNICAL SKILLS</h3>
-            <ul class="skills-list">
-                <li>Java</li>
-                <li>Kotlin</li>
-                <li>Spring Boot</li>
-                <li>NestJS</li>
-                <li>Microservices</li>
-                <li>System Design</li>
-                <li>Software Architecture</li>
-                <li>Databases</li>
-                <li>Message Brokers</li>
-                <li>IdP</li>
-                <li>API Gateway</li>
-                <li>Security</li>
-                <li>SonarQube</li>
-                <li>Docker</li>
-                <li>Helm Chart</li>
-                <li>Kubernetes</li>
-                <li>Teamwork</li>
-                <li>Leadership</li>
-                <li>Rust</li>
-                <li>LLM, RAG, knowledge graph, MCP, agentic AI</li>
-                <li>Blockchain</li>
-            </ul>
-        </section>
-        
-        <section id="soft-skills">
-            <h3>SOFT SKILLS</h3>
-            <ul class="skills-list">
-                <li>Communication</li>
-                <li>Documentation</li>
-                <li>English proficiency</li>
-            </ul>
-        </section>
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div class="position">Backend Software Engineer</div>
+                            <div class="dates">Jun 2022 - May 2025</div>
+                        </div>
+                        <div class="company">DCore (next generation microservices based core banking platform)</div>
+                        <div class="description">
+                            A fintech company funded by Sequoia Capital and Kleiner Perkins on a mission to build next generation core
+                            banking platform
+                            <ul>
+                                <li>Designed and implemented a pluggable multi-provider notification service (Email, SMS, Push) using SPI pattern,
+                            improving delivery reliability and enabling dynamic provider onboarding without service redeployment.</li>
+                                <li>Built a dynamic parameter service allowing runtime configuration of financial product and banking instruments
+                            behavior (charges, limits, validation rules), accelerating product customization and launching new products.</li>
+                                <li>Architected a template generation service (HTML, Email, PDF, Reports) using Apache Freemarker for dynamic docu-
+                            ment generation across services and internal tools.</li>
+                                <li>Architected a template generation service (HTML, Email, PDF, Reports) using Apache Freemarker for dynamic docu-
+                            ment generation across services and internal tools.</li>
+                                <li>Architected a template generation service (HTML, Email, PDF, Reports) using Apache Freemarker for dynamic docu-
+                            ment generation across services and internal tools.</li>
+                                <li>Developed device management service to track customer-device associations, strengthening fraud detection and au-
+                            thentication workflows.</li>
+                                <li>Contributed to document service supporting multi-S3 compatible storage providers (AWS S3 and MinIO).</li>
+                                <li>Contributed to the design and development of product definition service particularly to the workflow-based financial
+                            product requirements for account opening and performing transactions.</li>
+                                <li>Contributed to the design and implementation of instrument service handling banking instruments like cards and
+                            cheque management with event-driven execution scripts.</li>
+                                <li>Enhanced transaction validation pipeline within the Turbine (customer requests and transaction processing engine) to
+                            fail invalid requests early and improve system reliability.</li>
+                                <li>Moved services authorization logic from spring boot in-service implementation to Rego policy in OPA sidecar, added
+                            flexibility to authorization policy changes without service redeployment.</li>
+                                <li>Conducted performance benchmarking (Postgres vs JGit storage), achieving 200+ additional RPS with Postgres, influ-
+                            encing architectural decisions.</li>
+                                <li>Contributed to the overall technical requirements and architectural design documentations across the services.</li>
+                            </ul> 
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div class="position">Backend Software Engineer  | Team Lead</div>
+                            <div class="dates">Jun 2021 - Jun 2022</div>
+                        </div>
+                        <div class="company">Talkkia (a social and communication app)</div>
+                        <div class="description">
+                            A social and communication application with features like messaging, groups, calls, and public posts.
+                            <ul>
+                                <li>Designed and built backend architecture for users, messaging, groups, calls, and public posts.</li>
+                                <li>Led backend engineering team and guided architectural decisions.</li>
+                                <li>Implemented a user authentication and authorization system using JWT tokens and Spring Security, enhancing application security.</li>
+                                <li>Modeled social graph using Neo4j to efficiently manage relationships and interactions.</li>
+                                <li>Implemented real-time communication using WebSockets and STOMP.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div class="position">Backend Software Engineer</div>
+                            <div class="dates">Jan 2022 - Mar 2022</div>
+                        </div>
+                        <div class="company">Remerse (Software Development Company)</div>
+                        <div class="description">
+                            Developed Viyakum an event management application for a client in Oman. The application allows users to create and manage events, invite attendees, and send notifications.
+                            <ul>
+                                <li>Developed backend for event management application including user roles, event scheduling, and notification systems.</li>
+                                <li>Designed REST APIs for admin and user workflows.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Research Section -->
+                <div class="experience-section">
+                    <div class="section-title">Research Experience</div>
+                    
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div class="position">Postgraduate Researcher</div>
+                            <div class="dates">Sep 2018 - Apr 2021</div>
+                        </div>
+                        <div class="company">Beihang University (BUAA) Beijing China</div>
+                        <div class="description">
+                            <ul>
+                                <li>Designed smart-contract driven cross-border trade supply chain network using Hyperledger Fabric.</li>
+                                <li>Modeled decentralized trade ecosystem including suppliers, buyers, banks, and regulators.</li>
+                                <li>Implemented code generation from the SIGNAL Data-Flow Language to Verilog in Java.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education Section -->
+                <div class="experience-section">
+                    <div class="section-title">Education</div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div class="position">Master in Computer Science (Blockchain Technology and Applications)</div>
+                            <div class="dates">Sep 2017 - Sep 2020</div>
+                        </div>
+                        <div class="company">Beihang University (BUAA) Beijing China</div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div class="position">Bachelor of Science in Computer Science</div>
+                            <div class="dates">Sep 2011 - Feb 2016</div>
+                        </div>
+                        <div class="company">Govt Degree College Samar Bagh Pakistan</div>
+                    </div>
+                </div>
+                <!-- Certificates Section -->
+                <div class="experience-section">
+                    <div class="section-title">Certificates</div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div class="position">Short Summer Course - IELTS</div>
+                            <div class="dates">Jun 2016 - Aug 2016</div>
+                        </div>
+                        <div class="company">National University of Modern Languages (NUML) Islamabad Pakistan</div>
+                    </div>
+                </div>
+                <!-- Awards Section -->
+                <div class="experience-section">
+                    <div class="section-title">Awards and Achievements</div>
+                    <div class="description">
+                        <ul>
+                            <li>Khyber Pakhtunkhwa HED undergraduate scholarship for position holder</li>
+                            <li>Khyber Pakhtunkhwa government Naway Sahar Laptop: A tribute to youth talent</li>
+                            <li>Postgraduate fully funded scholarship for MS - Chinese government scholarship</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
